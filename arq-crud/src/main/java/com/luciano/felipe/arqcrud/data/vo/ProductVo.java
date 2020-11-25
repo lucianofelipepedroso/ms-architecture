@@ -3,6 +3,7 @@ package com.luciano.felipe.arqcrud.data.vo;
 import java.io.Serializable;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -21,14 +22,14 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @Getter
 @Setter
-public class ProductVo implements Serializable{
+public class ProductVo extends RepresentationModel<ProductVo> implements Serializable{
 
 	private static final long serialVersionUID = 8579108491230964960L;
 
-	@JsonProperty("{id}")
+	@JsonProperty("{id}") 
     private Long id;
 
 	@JsonProperty("{name}")
