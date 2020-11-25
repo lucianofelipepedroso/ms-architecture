@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.luciano.felipe.arqcrud.data.vo.ProductVo;
 import com.luciano.felipe.arqcrud.entities.Product;
+import com.luciano.felipe.arqcrud.exception.ResourceNotFoundException;
 import com.luciano.felipe.arqcrud.repository.ProductRepository;
 
 @Service
@@ -35,7 +36,7 @@ public class ProductService {
 
 	public ProductVo findById(Long id) {
 		var product = productRepository.findById(id)
-				.orElseThrow(() -> new ResolutionException("no records found for this ID"));
+				.orElseThrow(() -> new ResourceNotFoundException("no records found for this ID"));
 		return ProductVo.create(product);
 	}
 
@@ -51,7 +52,7 @@ public class ProductService {
 
 	public void delete(Long id) {
 		var product = productRepository.findById(id)
-				.orElseThrow(() -> new ResolutionException("no records found for this ID"));
+				.orElseThrow(() -> new ResourceNotFoundException("no records found for this ID"));
 
 		productRepository.delete(product);
 	}

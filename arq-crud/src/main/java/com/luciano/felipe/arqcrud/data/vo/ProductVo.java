@@ -16,34 +16,31 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
-
-@JsonPropertyOrder("{id},{name},{stock},{price}")
+@JsonPropertyOrder({"id","name","stock","price"})
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode(callSuper = false)
 @Getter
 @Setter
-public class ProductVo extends RepresentationModel<ProductVo> implements Serializable{
+public class ProductVo extends RepresentationModel<ProductVo> implements Serializable {
 
 	private static final long serialVersionUID = 8579108491230964960L;
 
-	@JsonProperty("{id}") 
-    private Long id;
+	@JsonProperty("id")
+	private Long id;
 
-	@JsonProperty("{name}")
+	@JsonProperty("name")
 	private String name;
 
-	@JsonProperty("{stock}")
+	@JsonProperty("stock")
 	private Integer stock;
 
-	@JsonProperty("{price}")
+	@JsonProperty("price")
 	private Double price;
-	
 
 	public static ProductVo create(Product product) {
-		return new ModelMapper().map(product,ProductVo.class);
+		return new ModelMapper().map(product, ProductVo.class);
 	}
 
 }

@@ -70,7 +70,7 @@ public class ProductController {
 			"application/json", "application/xml", "application/x-yaml" })
 	public ProductVo create(@RequestBody ProductVo productVo) {
 		ProductVo proVo = productService.create(productVo);
-		proVo.add(linkTo(methodOn(ProductController.class).findById(productVo.getId())).withSelfRel());
+		proVo.add(linkTo(methodOn(ProductController.class).findById(proVo.getId())).withSelfRel());
 		return proVo;
 
 	}
@@ -85,7 +85,7 @@ public class ProductController {
 	}
 
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
+	public ResponseEntity<?> delete(@PathVariable("id") Long id) {
 		productService.delete(id);
 		return ResponseEntity.ok().build();
 
