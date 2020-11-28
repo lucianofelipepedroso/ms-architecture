@@ -12,6 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.modelmapper.ModelMapper;
+
+import com.luciano.felipe.arqpayment.data.vo.ProductSaleVo;
+import com.luciano.felipe.arqpayment.data.vo.SaleVo;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -45,4 +50,8 @@ public class ProductSale implements Serializable{
 	@JoinColumn(name = "id_sale")
 	private Sale sale;
 
+	public static ProductSale create(ProductSaleVo pSaleVo) {
+		return new ModelMapper().map(pSaleVo, ProductSale.class);
+
+	}
 }

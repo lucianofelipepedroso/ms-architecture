@@ -1,0 +1,21 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /payment
+    
+spring:
+  application:
+    name: arq-payment
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQL5Dialect
+  jmx:
+    enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/db-payment?serverTimezone=America/Sao_Paulo
+    username: root
+    password: admin

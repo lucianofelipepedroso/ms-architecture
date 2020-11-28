@@ -9,7 +9,6 @@ import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.luciano.felipe.arqpayment.entities.ProductSale;
 import com.luciano.felipe.arqpayment.entities.Sale;
 
 import lombok.AllArgsConstructor;
@@ -36,7 +35,7 @@ public class SaleVo extends RepresentationModel<SaleVo> implements Serializable 
 	private Date date;
 	
     @JsonProperty("products")
-	private List<ProductSale> products;
+	private List<ProductSaleVo> products;
 	
     @JsonProperty("totalValue")
 	private Double totalValue;
