@@ -4,7 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.modelmapper.ModelMapper;
+
+import com.luciano.felipe.arqpayment.data.vo.ProductVo;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -30,5 +36,10 @@ public class Product implements Serializable {
 	
 	@Column(name = "stock", nullable = false)
 	private Integer stock;
+	
+	 public static Product create(ProductVo productVo) {
+			return new ModelMapper().map(productVo, Product.class);
+	    	
+	    }
 
 }

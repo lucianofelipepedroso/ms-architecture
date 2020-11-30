@@ -10,7 +10,7 @@ spring:  application:    name: arq-crud  jpa:    show-sql: false
     username: root
     password: admin
     
-  rabbitmq:    host: localhos
+  rabbitmq:    host: localhost
     port: 5672
     username: admin
     password: admin
