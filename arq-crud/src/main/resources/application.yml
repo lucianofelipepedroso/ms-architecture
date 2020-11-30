@@ -9,6 +9,19 @@ spring:  application:    name: arq-crud  jpa:    show-sql: false
   datasource:    url: jdbc:mysql://localhost:3306/db-crud?serverTimezone=America/Sao_Paulo
     username: root
     password: admin
-               
+    
+  rabbitmq:    host: localhos
+    port: 5672
+    username: admin
+    password: admin
+    
+crud:
+  rabbitmq:
+    exchange: crud.exchange
+    routingkey: crud.product.routingkey
+    
+
+     
+              
    
       
