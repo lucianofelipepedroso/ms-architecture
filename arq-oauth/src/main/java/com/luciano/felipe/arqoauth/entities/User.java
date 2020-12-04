@@ -1,6 +1,7 @@
 package com.luciano.felipe.arqoauth.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -66,11 +67,15 @@ public class User implements UserDetails,Serializable{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+		return this.permissions;
 	}
 	
 	public List<String> getRoles(){
-		return null;
+		List<String> roles = new ArrayList<>();
+		this.permissions.forEach(p -> {
+			roles.add(p.getDescription());
+		});
+		return roles;
 		
 	}
 
