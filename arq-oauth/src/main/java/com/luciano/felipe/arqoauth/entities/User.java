@@ -43,7 +43,7 @@ public class User implements UserDetails,Serializable{
 	private Long id;
 	
 	@Column(nullable = false,name = "user_name",unique = true)
-	private String userName;
+	private String username;
 	
 	@Column(nullable = false,name = "password")
 	private String password;
@@ -81,7 +81,7 @@ public class User implements UserDetails,Serializable{
 
 	@Override
 	public String getUsername() {
-		return this.userName;
+		return this.username;
 	}
 
 	@Override

@@ -44,7 +44,7 @@ public class ArqOauthApplication {
 		}
 		
 		User admin = new User();
-		admin.setUserName("luciano");
+		admin.setUsername("luciano");
 		admin.setAccountNonExpired(true);
 		admin.setAccountNonLocked(true);
 		admin.setCredentialsNonExpired(true);

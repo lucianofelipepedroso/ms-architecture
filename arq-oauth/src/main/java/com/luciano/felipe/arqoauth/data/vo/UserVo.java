@@ -26,7 +26,7 @@ public class UserVo implements Serializable{
 	private static final long serialVersionUID = -5787449748335334989L;
 
 
-	private String userName;
+	private String username;
 	
 	
 	private String password;

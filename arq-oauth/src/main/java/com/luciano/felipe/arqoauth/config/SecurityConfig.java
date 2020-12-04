@@ -2,6 +2,7 @@ package com.luciano.felipe.arqoauth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -11,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.luciano.felipe.arqoauth.jwt.JwtConfigure;
 import com.luciano.felipe.arqoauth.jwt.JwtTokenProvider;
 
+@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	private final JwtTokenProvider jwtTokenProvider;
@@ -42,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Bean
 	@Override
-	protected AuthenticationManager authenticationManager() throws Exception {
+	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
 
