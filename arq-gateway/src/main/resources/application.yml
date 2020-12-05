@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  
+spring:
+  application:
+    name: arq-gateway
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/registry/eureka
+
+zuul:
+
+  prefix: /api
+  ignored-services: "*"
+  
+  routes:
+    crud:
+      service-id: arq-crud
+      path: /crud/**
+      strip-prefix: false
+      custom-sensitive-headers: true
+      
+   
+      
+    payment:
+      service-id: arq-payment
+      path: /payment/**
+      strip-prefix: false
+      custom-sensitive-headers: true
+     
+   
+      
+    oauth:
+      service-id: arq-oauth
+      path: /auth/**
+      strip-prefix: false
+      custom-sensitive-headers: true
+      
+ 
+  
